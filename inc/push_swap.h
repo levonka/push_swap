@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/26 14:11:10 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/02/26 16:42:58 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct		s_st
 	int				*b;
 	int				a_top;		// указатель на первый элемент стэка a (по индексу).
 	int				b_top;		// указатель на первый элемент стэка b (по индексу).
+	int				a_end;		// указатель на последний индекс массива a (по индексу).
+	int				b_end;		// указатель на последний индекс массива b (по индексу).
 	int				a_size;		// кол-во чисел в стэке a.
 	int				b_size;		// кол-во чисел в стэке b.
 }					t_st;
@@ -44,12 +46,13 @@ typedef struct		s_st
 
 
 //		checker.c
-void	diag(t_st *st);
 
 //		useful_funcs.c
+void	diag(t_st *st);
 void	printerror(int status);
 void    print_tab(t_st *stacks);
 void	malloc_stack(t_st *stacks, int ac);
+void	ft_swapint(int *a, int *b);
 
 //		handle_instructions.c
 void	handle_instructions(t_st *stacks);
