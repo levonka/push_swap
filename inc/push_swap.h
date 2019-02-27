@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/26 16:42:58 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/02/27 14:32:31 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_st
 
 
 //		checker.c
+int		ind(t_st *st, int topa);
 
 //		useful_funcs.c
 void	diag(t_st *st);

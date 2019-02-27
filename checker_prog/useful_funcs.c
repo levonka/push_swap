@@ -67,9 +67,9 @@ void	print_tab(t_st *st)
 		if (top_b == -1)
 			top_b = st->b_end;
 		if (top_a > st->a_end)
-			top_a = st->a_end - st->a_size + 1;
+			top_a = 0;
 		if (i < st->a_size)
-			ft_printf("%.3clr%4d   %.3clr", "|", st->a[top_a % (st->a_end + 1)], "|");
+			ft_printf("%.3clr%4d   %.3clr", "|", st->a[top_a], "|");
 		else
 			ft_printf("%.3clr   -   %.3clr", "|", "|");
 		if (i < st->b_size)

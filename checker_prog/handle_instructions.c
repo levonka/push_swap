@@ -5,11 +5,18 @@ void	pb(t_st *st)
 	if (st->a_size > 0)
 	{
 		st->b[st->b_size] = st->a[st->a_top];
-		st->a_top++;
-		st->b_top++;
+		// st->b_top++;
 		st->b_end++;
 		st->b_size++;
 		st->a_size--;
+		if (st->a_top == st->a_end)
+			st->a_top = 0;
+		else
+			st->a_top++;
+		if (st->b_top == -1)
+			st->b_top = st->b_end;
+		else
+			st->b_top++;
 	}
 }
 
@@ -58,9 +65,24 @@ void	ss(t_st *st)
 void	ra(t_st *st)
 {
 	if (st->a_size > 1)
-		st->a_top++;
-	if (st->a_top > st->a_end)
-		st->a_top = 0 + st->a_size;
+	{
+		if (st->a_end == st->a_size - 1)
+		{
+			if (st->a_top == st->a_end)
+				st->a_top = 0;
+			else
+				st->a_top++;
+			return ;
+		}
+		if ((st->a_top + st->a_size - 1) >= st->a_end)
+			st->a[(st->a_top + st->a_size - 1) % (st->a_end)] = st->a[st->a_top];
+		else
+			st->a[st->a_top + st->a_size] = st->a[st->a_top];
+		if (st->a_top == st->a_end)
+			st->a_top = 0;
+		else
+			st->a_top++;
+	}
 }
 
 void	rb(t_st *st)
@@ -69,6 +91,16 @@ void	rb(t_st *st)
 		st->b_top--;
 	if (st->b_top < 0)
 		st->b_top = st->b_end;
+
+
+	// printf("\n");
+	// int i;
+	// i = 0;
+	// while (i < st->b_size + 3)
+	// {
+	// 	printf("%d\n", st->b[i]);
+	// 	i++;
+	// }
 }
 
 void	rr(t_st *st)
@@ -82,34 +114,97 @@ void	handle_instructions(t_st *st)
 	ft_printf("%.clr\n", "========= PB =========");
 	pb(st);
 	pb(st);
-	// print_tab(st);
-	// diag(st);
-	// ft_printf("%.clr\n", "========= SA =========");
-	// ft_printf("%.clr\n", "========= SB =========");
-	// ft_printf("%.clr\n", "========= SS =========");
-	// sb(st);
-	// sa(st);
-	// ss(st);
-	// print_tab(st);
-	// ft_printf("%.clr\n", "========= PA =========");
-	// pa(st);
-	// pa(st);
-	// print_tab(st);
-	// diag(st);
-	// ft_printf("%.clr\n", "========= RA =========");
-	// ft_printf("%.clr\n", "========= RB =========");
-	// rr(st);
-	// diag(st);
-	ft_printf("%.clr\n", "========= RB =========");
-	rr(st);
-	rr(st);
-	diag(st);
-
-	// diag(st);
+	pb(st);
+	pb(st);
+	pb(st);
+	rb(st);
+	pa(st);
 	print_tab(st);
+	diag(st);
+	// ft_printf("%.clr\n", "========= RB =========");
+	// rb(st);
+	// print_tab(st);
+	// diag(st);
+	// pa(st);
+	// ra(st);
+	// pb(st);
+	// print_tab(st);
+	// diag(st);
 
 
 
 
 
 }
+
+
+
+// 1
+// 2
+// 3
+// 4
+// 5
+
+// pb pb
+// 1~
+// 2~
+// 3 - top
+// 4
+// 5
+
+// size = 3.
+// top = 2.
+
+// ra
+// 3
+// 2~
+// 3~
+// 4 - top
+// 5
+
+// a[(top + size) % end] = a[top];	(2 + 3) % 4 = 5 % 4 = 1;
+// top++;
+// size = 3.
+// top = 3.
+
+// ra
+// 3
+// 4
+// 3~
+// 4~
+// 5 - top
+
+// ra
+// 3 - top
+// 4
+// 5
+// 4~
+// 5~
+
+
+
+// 1
+// 2
+// 3
+// 4
+// 5
+
+// pb
+// 1
+// top = 0
+// end = 0
+
+// pb
+// 2
+// 1
+// top = 1
+// end = 1
+
+// pb
+// 3
+// 2
+// 1
+// top = 2
+// end = 2
+// size = 3
+
