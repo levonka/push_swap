@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/28 16:14:13 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/02/28 17:33:49 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ typedef struct		s_st
 	int				*b;
 	int				a_top;		// указатель на первый элемент стэка a (по индексу).
 	int				b_top;		// указатель на первый элемент стэка b (по индексу).
-	int				a_end;		// указатель на последний индекс массива a (по индексу).
-	int				b_end;		// указатель на последний индекс массива b (по индексу).
 	int				a_size;		// кол-во чисел в стэке a.
 	int				b_size;		// кол-во чисел в стэке b.
+	int				end;
 }					t_st;
 
 /*
@@ -46,7 +45,8 @@ typedef struct		s_st
 
 
 //		checker.c
-int		ind(t_st *st, int topa);
+int		ind_a(t_st *st, int n);
+int		ind_b(t_st *st, int n);
 
 //		useful_funcs.c
 void	diag(t_st *st);

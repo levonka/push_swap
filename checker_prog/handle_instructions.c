@@ -1,25 +1,33 @@
 #include "../inc/push_swap.h"
 
+void	sa(t_st *st)
+{
+	if (st->a_size > 1)
+		ft_swapint(&st->a[st->a_top], &st->a[ind_a(st, 1)]);
+}
+
+void	sb(t_st *st)
+{
+	if (st->b_size > 1)
+		ft_swapint(&st->b[st->b_top], &st->b[ind_b(st, 1)]);
+}
+
+void	ss(t_st *st)
+{
+	sa(st);
+	sb(st);
+}
+
 void	pa(t_st *st)
 {
 	if (st->b_size > 0)
 	{
-		if (st->a_top > 0)
-		{
-			st->a[st->a_top - 1] = st->b[st->b_top];
-			st->a_top--;
-		}
-		else
-		{
-			st->a[st->a_end] = st->b[st->b_top];
-			st->a_top = st->a_end;
-		}
-		st->b_top--;
-		if (st->b_top == -1)
-			st->b_top = st->b_end;
-		st->b_size--;
-
+		st->a[ind_a(st, -1)] = st->b[st->b_top];
 		st->a_size++;
+		st->a_top--;
+
+		st->b_size--;
+		st->b_top++;
 	}
 }
 
@@ -27,80 +35,31 @@ void	pb(t_st *st)
 {
 	if (st->a_size > 0)
 	{
-		st->b[st->b_size] = st->a[st->a_top];
-		// st->b_top++;
-		st->b_end++;
+		st->b[ind_b(st, -1)] = st->a[st->a_top];
 		st->b_size++;
+		st->b_top--;
+
 		st->a_size--;
-		if (st->a_top == st->a_end)
-			st->a_top = 0;
-		else
-			st->a_top++;
-		if (st->b_top == -1)
-			st->b_top = st->b_end;
-		else
-			st->b_top++;
+		st->a_top++;
 	}
-}
-
-void	sa(t_st *st)
-{
-	if (st->a_size > 1)
-		ft_swapint(&st->a[st->a_top], &st->a[st->a_top + 1]);
-}
-
-void	sb(t_st *st)
-{
-	if (st->b_size > 1)
-		ft_swapint(&st->b[st->b_top], &st->b[st->b_top - 1]);
-}
-
-void	ss(t_st *st)
-{
-	if (st->a_size > 1)
-		sa(st);
-	if (st->b_size > 1)
-		sb(st);
 }
 
 void	ra(t_st *st)
 {
-	if (st->a_size > 1)
+	if (st->a_size >= 2)
 	{
-		if (st->a_end == st->a_size - 1)
-		{
-			if (st->a_top == st->a_end)
-				st->a_top = 0;
-			else
-				st->a_top++;
-			return ;
-		}
-		if ((st->a_top + st->a_size - 1) >= st->a_end)
-			st->a[(st->a_top + st->a_size - 1) % (st->a_end)] = st->a[st->a_top];
-		else
-			st->a[st->a_top + st->a_size] = st->a[st->a_top];
-		if (st->a_top == st->a_end)
-			st->a_top = 0;
-		else
-			st->a_top++;
+		st->a[ind_a(st, st->a_size)] = st->a[st->a_top];
+		st->a_top = ind_a(st, 1);
 	}
 }
 
 void	rb(t_st *st)
 {
-	if (st->b_size > 1)
-		st->b_top--;
-	if (st->b_top < 0)
-		st->b_top = st->b_end;
-
-	// printf("\n");
-	// int i;
-	// i = 0;
-	// while (i < st->b_size + 3)
-	// {
-	// 	printf("%d\n", st->b[i]);
-	// 	i++;
-	// }
+	if (st->b_size >= 2)
+	{
+		st->b[ind_b(st, st->b_size)] = st->b[st->b_top];
+		st->b_top = ind_b(st, 1);
+	}
 }
 
 void	rr(t_st *st)
@@ -109,31 +68,41 @@ void	rr(t_st *st)
 	rb(st);
 }
 
+void	rra(t_st *st)
+{
+	if (st->a_size >= 2)
+	{
+		st->a[st->a_top] = st->a[(st->a_top + st->a_size) % (st->a_size + 1)];
+		st->a_top = (st->a_top + st->a_size) % (st->a_size + 1);
+	}
+}
+
 void	handle_instructions(t_st *st)
 {
 	ft_printf("%.clr\n", "========= PB =========");
 	pb(st);
-	pb(st);
-	pb(st);
-	pb(st);
-	pb(st);
-	rb(st);
-	rb(st);
-	rb(st);
-	rb(st);
-	print_tab(st);
-	diag(st);
-
-	pa(st);
-	pa(st);
-	pa(st);
-	pa(st);
-	pa(st);
-	ra(st);
-	ra(st);
-	ra(st);
-	ra(st);
 	// pb(st);
+	// rra(st);
+	// rra(st);
+	// st->a_size = 4;
+	// st->a_top = 0;
+	// top = 1
+
+	// top = 0
+	// st->a[0] = st->a[3];
+	// top = 3 + 3 % (3 + 1) = 2
+	// st->a[3] = st->a[2];
+	// top = 2 + 3 % 4 = 1
+	// st->a[2] = st->a[1];
+	// top = 1
+	// st->a[1] = st->a[0];
+	// top = 0
+	// st->a[0] = st->a[3];
+	// st->a[3] = st->a[2];
+	// st->a[2] = st->a[1];
+	// st->a[1] = st->a[0];
+	// printf("%d\n", ind_a(st, st->a_size - 1));
+	// st->a_top = ind_a(st, st->a_size);
 	print_tab(st);
 	diag(st);
 	// ft_printf("%.clr\n", "========= RB =========");
@@ -145,11 +114,6 @@ void	handle_instructions(t_st *st)
 	// pb(st);
 	// print_tab(st);
 	// diag(st);
-
-
-
-
-
 }
 
 

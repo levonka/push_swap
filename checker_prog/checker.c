@@ -13,17 +13,28 @@ void	make_tab(t_st *st, int ac, char **av)
 	// st->a_top = ac - 2;
 	st->a_top = 0;
 	st->a_size = ac - 1;
-	st->a_end = ac - 2;
+	// st->a_end = ac - 2;
 }
 
-int		ind(t_st *st, int topa)
+int		ind_a(t_st *st, int n)
 {
-	if (topa + st->a_top < st->a_end + 1)
-	{
-		return (st->a_top + topa);
-	}
+	if (st->a_top + n < st->end + 1 && n >= 0)
+		return (st->a_top + n);
+	// if (n < 0)
+		// return ((st->a_top + st->a_size + n) % (st->end + 1));
 	else
-		return ((st->a_top + topa) % (st->a_end + 1));
+		return ((st->a_top + n) % (st->end + 1));
+	return (0);
+}
+
+int		ind_b(t_st *st, int n)
+{
+	if (st->b_top + n < st->end + 1 && n >= 0)
+		return (st->b_top + n);
+	// if (n < 0)
+		// return ((st->b_top + st->b_size + n) % (st->end + 1));
+	else
+		return ((st->b_top + n) % (st->end + 1));
 	return (0);
 }
 
