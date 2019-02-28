@@ -1,5 +1,28 @@
 #include "../inc/push_swap.h"
 
+void	pa(t_st *st)
+{
+	if (st->b_size > 0)
+	{
+		if (st->a_top > 0)
+		{
+			st->a[st->a_top - 1] = st->b[st->b_top];
+			st->a_top--;
+		}
+		else
+		{
+			st->a[st->a_end] = st->b[st->b_top];
+			st->a_top = st->a_end;
+		}
+		st->b_top--;
+		if (st->b_top == -1)
+			st->b_top = st->b_end;
+		st->b_size--;
+
+		st->a_size++;
+	}
+}
+
 void	pb(t_st *st)
 {
 	if (st->a_size > 0)
@@ -17,28 +40,6 @@ void	pb(t_st *st)
 			st->b_top = st->b_end;
 		else
 			st->b_top++;
-	}
-}
-
-void	pa(t_st *st)
-{
-	if (st->b_size > 0)
-	{
-		if (st->a_top > 0)
-		{
-			st->a[st->a_top - 1] = st->b[st->b_top];
-			st->a_top--;
-		}
-		else
-		{
-			st->a[st->a_end] = st->b[st->b_top];
-			st->a_top = st->a_end;
-		}
-		st->b_top--;
-		st->b_end--;
-		st->b_size--;
-
-		st->a_size++;
 	}
 }
 
@@ -92,7 +93,6 @@ void	rb(t_st *st)
 	if (st->b_top < 0)
 		st->b_top = st->b_end;
 
-
 	// printf("\n");
 	// int i;
 	// i = 0;
@@ -118,7 +118,22 @@ void	handle_instructions(t_st *st)
 	pb(st);
 	pb(st);
 	rb(st);
+	rb(st);
+	rb(st);
+	rb(st);
+	print_tab(st);
+	diag(st);
+
 	pa(st);
+	pa(st);
+	pa(st);
+	pa(st);
+	pa(st);
+	ra(st);
+	ra(st);
+	ra(st);
+	ra(st);
+	// pb(st);
 	print_tab(st);
 	diag(st);
 	// ft_printf("%.clr\n", "========= RB =========");
