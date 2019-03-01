@@ -53,25 +53,21 @@ int		argvalidation(int ac, char **av, t_st *st)
 
 	i = 1;
 	j = 0;
-	if (ac == 1)
-		printerror(40);
-	else
-		while (i < ac && j < ac)
+	while (j < ac)
+	{
+		part = av[i];
+		flag = 1;
+		while (flag == 1)
 		{
-			part = av[i];
-			flag = 1;
-			while (flag == 1)
-			{
-				// printf(">> i = %d, j = %d\n", i, j);
-				// printf("%s\n", part);
-				st->a[j] = ft_vatoi(&part);
-				j++;
-				if (*part == '\0')
-					flag = 0;
-			}
-			i++;
+			// printf(">> i = %d, j = %d\n", i, j);
+			// printf("%s\n", part);
+			st->a[j] = ft_vatoi(&part);
+			j++;
+			if (*part == '\0')
+				flag = 0;
 		}
-	printf("valid\n");
+		i++;
+	}
 	return (0);
 }
 

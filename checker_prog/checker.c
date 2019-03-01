@@ -50,10 +50,12 @@ int		main(int ac, char **av)
 {
 	t_st	*stacks;
 
+	if (ac == 1)
+		printerror(40);
 	stacks = (t_st *)malloc(sizeof(t_st));
 	ac = argsamount(ac, av);
-	printf("ac = %d\n", ac);
 	malloc_stack(stacks, ac);
+	// printf("ac = %d\n", ac);
 	argvalidation(ac, av, stacks);
 	ft_printf("\n%.clr\n", "========== TAB ===========");
 	print_tab(stacks);

@@ -96,8 +96,11 @@ void	handle_instructions(t_st *st)
 {
 	ft_printf("%.clr\n", "=========== PB ===========");
 
-
-
+	// rra(st);
+	// pb(st);
+	// sa(st);
+	// rra(st);
+	// pa(st);
 	// pb(st);
 	// rra(st);
 	// pa(st);
@@ -106,6 +109,7 @@ void	handle_instructions(t_st *st)
 	// pb(st);
 	// pb(st);
 	// rb(st);
+	// sa(st);
 	// rb(st);
 	// pa(st);
 	// ra(st);
