@@ -24,16 +24,10 @@ void	pa(t_st *st)
 	{
 		st->a[ind_a(st, -1)] = st->b[st->b_top];
 		st->a_size++;
-		if (st->a_top - 1 < 0)
-			st->a_top = ind_a(st, -1);
-		else
-			st->a_top--;
+		st->a_top = ind_a(st, -1);
 
 		st->b_size--;
-		if (st->b_top + 1 > st->end)
-			st->b_top = ind_b(st, 1);
-		else
-			st->b_top++;
+		st->b_top = ind_b(st, 1);
 	}
 }
 
@@ -43,16 +37,10 @@ void	pb(t_st *st)
 	{
 		st->b[ind_b(st, -1)] = st->a[st->a_top];
 		st->b_size++;
-		if (st->b_top - 1 < 0)
-			st->b_top = ind_b(st, -1);
-		else
-			st->b_top--;
+		st->b_top = ind_b(st, -1);
 
 		st->a_size--;
-		if (st->a_top + 1 > st->end)
-			st->a_top = ind_a(st, 1);
-		else
-			st->a_top++;
+		st->a_top = ind_a(st, 1);
 	}
 }
 
@@ -98,40 +86,43 @@ void	rrb(t_st *st)
 	}
 }
 
+void	rrr(t_st *st)
+{
+	rra(st);
+	rrb(st);
+}
+
 void	handle_instructions(t_st *st)
 {
-	ft_printf("%.clr\n", "========= PB =========");
-	pb(st);
-	rra(st);
-	pa(st);
-	ra(st);
-	ra(st);
-	pb(st);
-	pb(st);
-	rb(st);
-	rb(st);
-	pa(st);
-	ra(st);
-	pb(st);
-	sa(st);
-	pb(st);
-	pb(st);
-	sb(st);
-	rb(st);
-	rb(st);
-	pa(st);
-	pa(st);
-	sa(st);
-	pa(st);
-	ra(st);
-	pa(st);
-	ra(st);
-	rra(st);
-	rra(st);
-	sa(st);
-	pb(st);
-	pb(st);
-	sa(st);
+	ft_printf("%.clr\n", "=========== PB ===========");
+
+
+
+	// pb(st);
+	// rra(st);
+	// pa(st);
+	// ra(st);
+	// ra(st);
+	// pb(st);
+	// pb(st);
+	// rb(st);
+	// rb(st);
+	// pa(st);
+	// ra(st);
+	// pb(st);
+	// sa(st);
+	// pb(st);
+	// pb(st);
+	// sb(st);
+	// rb(st);
+	// rb(st);
+	// pa(st);
+	// pa(st);
+	// sa(st);
+	// pa(st);
+	// ra(st);
+	// pa(st);
+	// ra(st);
 
 	// int i = 0;
 	// while (i < 4)

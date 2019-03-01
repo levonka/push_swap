@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/28 17:33:49 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/01 15:16:55 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ int		argvalidation(int ac, char **av);
 **	validation
 **	40 - there are no arguments.
 **	41 - some arguments are not integers.
-**	42 - some arguments are bigger than an integer.
+**	42 - some arguments are bigger or lower than an integer.
 **	43 - there are duplicates.
-**	44 - an instruction don’t exist and/or is incorrectly formatted.
+**	44 - there are empty argument.
+**	45 - an instruction don’t exist and/or is incorrectly formatted.
 **
 */
 
