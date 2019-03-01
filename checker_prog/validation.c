@@ -8,55 +8,70 @@ int		ft_isspace(char c)
 	return (0);
 }
 
-void	empty_valid(const char *str, int *sign, int *i)
+static void	empty_valid(char **str, int *sign)
 {
-	while (ft_isspace(str[*i]) == 1)
-		(*i)++;
-	(str[*i] == '-') ? *sign *= -1 : *sign;
-	if (str[*i] == '-' || str[*i] == '+')
-		(*i)++;
-	if (*i == (int)ft_strlen(str))
+	int		len;
+
+	len = (int)ft_strlen(*str);
+	while (ft_isspace(**str))
+		(*str)++;
+	(**str == '-') ? *sign *= -1 : *sign;
+	if (**str == '-' || **str == '+')
+		(*str)++;
+	if (**str == '\0')
 		printerror(44);
+	if (ft_isdigit(**str) == 0 && ft_isspace(**str) == 1)
+		printerror(41);
 }
 
-int		ft_vatoi(const char *str, int i)
+static int		ft_vatoi(char **str)
 {
 	unsigned long	res;
 	int				sign;
 
 	res = 0;
 	sign = 1;
-	empty_valid(str, &sign, &i);
-	while (str[i] >= '0' && str[i] <= '9')
+	empty_valid(str, &sign);
+	while (**str >= '0' && **str <= '9')
 	{
-		res = (res * 10) + str[i] - 48;
-		if (ft_isdigit(str[++i]) == 0 && str[i] != '\0')
-			printerror(41);
+		res = (res * 10) + **str - 48;
+		(*str)++;
 	}
-	if (ft_isdigit(str[i]) == 0 && str[i] != '\0')
-			printerror(41);
 	if ((res > 2147483647 && sign == 1) || (res > 2147483648 && sign == -1))
 		printerror(42);
+	while (ft_isspace(**str))
+		(*str)++;
 	return ((int)res * sign);
 }
 
-int		argvalidation(int ac, char **av)//, t_st *st)
+int		argvalidation(int ac, char **av, t_st *st)
 {
 	int		i;
+	int		j;
 	char	*part;
+	int		flag = 1;
 
 	i = 1;
+	j = 0;
 	if (ac == 1)
 		printerror(40);
 	else
-	{
-		while (i < ac)
+		while (i < ac && j < ac)
 		{
 			part = av[i];
-			ft_vatoi(part, 0);
+			flag = 1;
+			while (flag == 1)
+			{
+				// printf(">> i = %d, j = %d\n", i, j);
+				// printf("%s\n", part);
+				st->a[j] = ft_vatoi(&part);
+				j++;
+				if (*part == '\0')
+					flag = 0;
+			}
 			i++;
 		}
-	}
+	printf("valid\n");
 	return (0);
 }
 

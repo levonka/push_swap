@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/01 15:16:55 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/01 17:42:58 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,17 @@ void	ft_swapint(int *a, int *b);
 //		handle_instructions.c
 void	handle_instructions(t_st *stacks);
 
+//		validation.c
+int		ft_isspace(char c);
+
+//		argsamount.c
+int		argsamount(int ac, char **av);
+
 /*
 ** |_______________________ Validating Functions ______________________________|
 */
 
-int		argvalidation(int ac, char **av);
+int		argvalidation(int ac, char **av, t_st *st);
 
 /*
 ** ____________________________ Error Number ___________________________________
