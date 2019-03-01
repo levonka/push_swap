@@ -20,8 +20,13 @@ int		ind_a(t_st *st, int n)
 {
 	if (st->a_top + n < st->end + 1 && n >= 0)
 		return (st->a_top + n);
-	// if (n < 0)
-		// return ((st->a_top + st->a_size + n) % (st->end + 1));
+	if (n < 0)
+	{
+		if (st->a_top + n >= 0)
+			return (st->a_top + n);
+		else
+			return (st->end);
+	}
 	else
 		return ((st->a_top + n) % (st->end + 1));
 	return (0);
@@ -31,8 +36,13 @@ int		ind_b(t_st *st, int n)
 {
 	if (st->b_top + n < st->end + 1 && n >= 0)
 		return (st->b_top + n);
-	// if (n < 0)
-		// return ((st->b_top + st->b_size + n) % (st->end + 1));
+	if (n < 0)
+	{
+		if (st->b_top + n >= 0)
+			return (st->b_top + n);
+		else
+			return (st->end);
+	}
 	else
 		return ((st->b_top + n) % (st->end + 1));
 	return (0);
