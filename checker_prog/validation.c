@@ -32,7 +32,7 @@ static int		ft_vatoi(char **str)
 	res = 0;
 	sign = 1;
 	empty_valid(str, &sign);
-	while (**str >= '0' && **str <= '9')
+	while (**str >= '0' && **str <= '9' && **str != '\0')
 	{
 		res = (res * 10) + **str - 48;
 		(*str)++;
@@ -59,8 +59,6 @@ int		argvalidation(int ac, char **av, t_st *st)
 		flag = 1;
 		while (flag == 1)
 		{
-			// printf(">> i = %d, j = %d\n", i, j);
-			// printf("%s\n", part);
 			st->a[j] = ft_vatoi(&part);
 			j++;
 			if (*part == '\0')

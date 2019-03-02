@@ -63,11 +63,11 @@ void	print_tab(t_st *st)
 	while (i < st->a_size || i < st->b_size)
 	{
 		if (i < st->a_size)
-			ft_printf("%.3clr%6d   %.3clr", "|", st->a[ind_a(st, i)], "|");
+			ft_printf("%.3clr%6d%4.3clr", "|", st->a[ind_a(st, i)], "|");
 		else
-			ft_printf("%.3clr    -    %.3clr", "|", "|");
+			ft_printf("%-5.3clr-%5.3clr", "|", "|");
 		if (i < st->b_size)
-			ft_printf("%5.2clr%6d   %.2clr\n", "|", st->b[ind_b(st, i)], "|");
+			ft_printf("%5.2clr%6d%4.2clr\n", "|", st->b[ind_b(st, i)], "|");
 		else
 			ft_printf("%5.2clr    -    %.2clr\n", "|", "|");
 		i++;

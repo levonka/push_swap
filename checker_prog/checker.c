@@ -1,19 +1,5 @@
 #include "../inc/push_swap.h"
 
-void	make_tab(t_st *st, int ac, char **av)
-{
-	int		i;
-
-	i = 1;
-	while (i < ac)
-	{
-		st->a[i - 1] = ft_atoi(av[i]);
-		i++;
-	}
-	st->a_top = 0;
-	st->a_size = ac - 1;
-}
-
 int		ind_a(t_st *st, int n)
 {
 	if (st->a_top + n < st->end + 1 && n >= 0)
@@ -49,19 +35,17 @@ int		ind_b(t_st *st, int n)
 int		main(int ac, char **av)
 {
 	t_st	*stacks;
+	char	*instructions;
 
 	if (ac == 1)
 		printerror(40);
 	stacks = (t_st *)malloc(sizeof(t_st));
 	ac = argsamount(ac, av);
 	malloc_stack(stacks, ac);
-	// printf("ac = %d\n", ac);
 	argvalidation(ac, av, stacks);
 	ft_printf("\n%.clr\n", "========== TAB ===========");
 	print_tab(stacks);
 	diag(stacks);
-	// printf("ind = %d\n", ind(stacks, 1));
-	// ft_printf("\n");
 	handle_instructions(stacks);
 	return (0);
 }

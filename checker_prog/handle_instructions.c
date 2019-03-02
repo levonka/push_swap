@@ -94,47 +94,7 @@ void	rrr(t_st *st)
 
 void	handle_instructions(t_st *st)
 {
-	ft_printf("%.clr\n", "=========== PB ===========");
-
-	// rra(st);
-	// pb(st);
-	// sa(st);
-	// rra(st);
-	// pa(st);
-	// pb(st);
-	// rra(st);
-	// pa(st);
-	// ra(st);
-	// ra(st);
-	// pb(st);
-	// pb(st);
-	// rb(st);
-	// sa(st);
-	// rb(st);
-	// pa(st);
-	// ra(st);
-	// pb(st);
-	// sa(st);
-	// pb(st);
-	// pb(st);
-	// sb(st);
-	// rb(st);
-	// rb(st);
-	// pa(st);
-	// pa(st);
-	// sa(st);
-	// pa(st);
-	// ra(st);
-	// pa(st);
-	// ra(st);
-
-	// int i = 0;
-	// while (i < 4)
-	// {
-	// 	printf("%d\n", st->a[i]);
-	// 	i++;
-	// }
-	// printf("hel\n");
+	// ft_printf("%.clr\n", "=========== PB ===========");
 
 
 	print_tab(st);
