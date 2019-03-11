@@ -1,43 +1,51 @@
 NAME = push_swap
 
+LIB = libft/libftprintf.a
+
 CHECKNAME = checker
-MAIN_CHECKER = checker_prog/checker.c
+# MAIN_CHECKER = checker_prog/checker.c
 CHECKER_SRC = checker_prog/*.c
 
-SORTNAME = sorting
-MAIN_SORT = main_sort.c
-SORTING_SRC = sorting_algorithms/*.c
+PUSHNAME = push_swap
+# MAIN_PUSH = push_swap_prog/push_swap.c
+PUSH_SRC = push_swap_prog/*.c
 
-FLAGS = -Wall -Wextra
+GNL = get_next_line.c
+COMMON_FUNCS = common_funcs/*.c
+
+FLAGS = -Wall -Wextra -Werror
 
 OBJ = *.o
 
 INC = inc/push_swap.h
-# includes/ft_printf.h includes/libft.h
 
 all: $(NAME)
 
-$(NAME): checker sort
+$(NAME):
 
-checker: clean
-	@gcc $(FLAGS) -c $(MAIN_CHECKER) $(CHECKER_SRC) -I$(INC)
-	@gcc -L. -lftprintf -I$(INC) -o $(CHECKNAME) $(OBJ)
+common: fclean
+	@make -C libft
+	@gcc $(FLAGS) -c $(GNL) $(COMMON_FUNCS) -I$(INC)
+
+push_swap: common checker
+	@gcc $(FLAGS) -c $(PUSH_SRC) -I$(INC)
+	@gcc -L. $(LIB) -I$(INC) -o $(PUSHNAME) $(OBJ)
 	@make clean
 
-sort: clean
-	@gcc $(FLAGS) -c $(MAIN_SORT) $(SORTING_SRC) -I$(INC)
-	@gcc -L. -lftprintf -I$(INC) -o $(SORTNAME) $(OBJ)
-	@make clean
+checker:
+	@gcc $(FLAGS) -c $(CHECKER_SRC) -I$(INC)
+	@gcc -L. $(LIB) -I$(INC) -o $(CHECKNAME) $(OBJ)
+	@/bin/rm -f checker.o
 
 norme:
-	norminette $(SRC)
+	norminette $(MAIN_CHECKER)
 
 clean:
 	@/bin/rm -f $(OBJ)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(CHECKNAME)
-	@/bin/rm -f $(SORTNAME)
+	@/bin/rm -f $(PUSHNAME)
+	@make -C libft fclean
 
 re: fclean all
