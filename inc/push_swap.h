@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/15 15:56:53 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/15 17:51:40 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	printerror(int status);
 void	diag(t_st *st);
 void	malloc_stack(t_st *stacks, int ac);
 void    print_tab(t_st *stacks);
+void	copytab(t_st *st, int *new_tab, int size, char status);
 
 int		ind_a(t_st *st, int n);
 int		ind_b(t_st *st, int n);
@@ -88,12 +89,11 @@ void	issorted(t_st *st);
 ** _______________________________ Push swap ___________________________________
 */
 
-// shellsort.c
-void	shellsort(int *tab, unsigned size);
+// quicksort.c
 void	quicksort(int *arr, int start, int end);
 
 // sorting.c
-void	sorting(t_st *st, int size, char stack);
+void	sorting(t_st *st, int size, char stack, int b);
 
 // getmedian.c
 int		getmedian(t_st *st, int size, char status);
@@ -116,12 +116,5 @@ void	sortthree_b(t_st *st, int size);
 **	44 - there are empty argument.
 **	5 - an instruction don’t exist and/or is incorrectly formatted.
 */
-
-
-/*
-** test = 10 2 5 8 11 12 9 3 6 1 7 4
-*/
-
-
 
 #endif
