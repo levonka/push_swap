@@ -31,6 +31,6 @@ int			getmedian(t_st *st, int size, char status)
 		copytab(st, new_tab, size, 'a');
 	else
 		copytab(st, new_tab, size, 'b');
-	shellsort(new_tab, size);
+	quicksort(new_tab, 0, size - 1);
 	return (new_tab[len]);
 }

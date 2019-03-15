@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:39 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/04 15:22:28 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/13 12:34:04 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 static void	do_instruct(char ind, t_st *st)
 {
 	if (ind == 0)
-		sa(st);
+		sa(st, 0);
 	else if (ind == 1)
-		sb(st);
+		sb(st, 0);
 	else if (ind == 2)
-		ss(st);
+		ss(st, 0);
 	else if (ind == 3)
-		pa(st);
+		pa(st, 0);
 	else if (ind == 4)
-		pb(st);
+		pb(st, 0);
 	else if (ind == 5)
-		ra(st);
+		ra(st, 0);
 	else if (ind == 6)
-		rb(st);
+		rb(st, 0);
 	else if (ind == 7)
-		rr(st);
+		rr(st, 0);
 	else if (ind == 8)
-		rra(st);
+		rra(st, 0);
 	else if (ind == 9)
-		rrb(st);
+		rrb(st, 0);
 	else if (ind == 10)
-		rrr(st);
+		rrr(st, 0);
 }
 
 void		instructvalidation(t_st *st)

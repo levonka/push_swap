@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/11 08:11:23 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/15 15:56:53 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ void    print_tab(t_st *stacks);
 int		ind_a(t_st *st, int n);
 int		ind_b(t_st *st, int n);
 
-void	sa(t_st *st);
-void	sb(t_st *st);
-void	ss(t_st *st);
-void	pa(t_st *st);
-void	pb(t_st *st);
+void	sa(t_st *st, char status);
+void	sb(t_st *st, char status);
+void	ss(t_st *st, char status);
+void	pa(t_st *st, char status);
+void	pb(t_st *st, char status);
 
-void	ra(t_st *st);
-void	rb(t_st *st);
-void	rr(t_st *st);
-void	rra(t_st *st);
-void	rrb(t_st *st);
+void	ra(t_st *st, char status);
+void	rb(t_st *st, char status);
+void	rr(t_st *st, char status);
+void	rra(t_st *st, char status);
+void	rrb(t_st *st, char status);
 
-void	rrr(t_st *st);
+void	rrr(t_st *st, char status);
 
 int		argsamount(int ac, char **av);
 
@@ -90,6 +90,7 @@ void	issorted(t_st *st);
 
 // shellsort.c
 void	shellsort(int *tab, unsigned size);
+void	quicksort(int *arr, int start, int end);
 
 // sorting.c
 void	sorting(t_st *st, int size, char stack);
@@ -116,6 +117,10 @@ void	sortthree_b(t_st *st, int size);
 **	5 - an instruction don’t exist and/or is incorrectly formatted.
 */
 
+
+/*
+** test = 10 2 5 8 11 12 9 3 6 1 7 4
+*/
 
 
 

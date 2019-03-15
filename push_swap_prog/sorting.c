@@ -6,23 +6,19 @@ int		partition(t_st *st, int size, char stack)
 	int j;
 	int pivot;
 
-	pivot = getmedian(st, size, stack);
-	// printf("pivot = %d\n", pivot);
 	i = 0;
 	j = 0;
+	pivot = getmedian(st, size, stack);
+	printf("pivot = %d\n", pivot);
 	while (i < size)
 	{
-		if (st->a[ind_a(st, 0)] > pivot)
+		if (st->a[ind_a(st, 0)] <= pivot)
 		{
-			printf("pb\n");
-			pb(st);
+			pb(st, 1);
 			j++;
 		}
 		else
-		{
-			printf("ra\n");
-			ra(st);
-		}
+			ra(st, 1);
 		i++;
 	}
 	return(size - j);
@@ -35,10 +31,7 @@ void	toa(t_st *st, int size)
 	i = 0;
 	while (i < size)
 	{
-		pa(st);
-		printf("pa\n");
-		ra(st);
-		printf("ra\n");
+		pa(st, 1);
 		i++;
 	}
 }
@@ -47,16 +40,19 @@ void	sorting(t_st *st, int size, char stack)
 {
 	int		pindex;
 
-	print_tab(st);
 	if (size <= 3)
 	{
 		if (stack == 'a')
+		{
 			sortthree_a(st, size);
+			print_tab(st);
+		}
 		else
 		{
 			sortthree_b(st, size);
 			print_tab(st);
 			toa(st, size);
+			print_tab(st);
 		}
 	}
 	else
