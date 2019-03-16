@@ -96,7 +96,8 @@ void	quicksort(int *arr, int start, int end);
 void	sorting(t_st *st, int size, char stack, int b);
 
 // getmedian.c
-int		getmedian(t_st *st, int size, char status);
+//int		getmedian(t_st *st, int size, char status);
+int			getmedian(t_st *st, int size, int *amount, char status);
 
 // sortthree.c
 void	sortthree_a(t_st *st, int size);

@@ -9,9 +9,8 @@ x=$3
 for (( i=1; i <= $x; i++ ))
 do
 	ARG=`ruby -e "puts ($start..$end).to_a.shuffle.join(' ')"`
-#	echo $ARG
-#	echo $ARG >> log
-#	./push_swap $ARG >> log
 	./push_swap $ARG > log.txt
-	cat log.txt | ./checker $ARG
+	cat log.txt | ./checker $ARG | tr '\n' ' '
+	# echo $ARG | tr '\n' ' '
+	cat log.txt | wc -l
 done
