@@ -6,9 +6,11 @@ int		partition_a(t_st *st, int size, char stack)
 	int j;
 	int pivot;
 	int amount;
+	int begin;
 
 	i = 0;
 	j = 0;
+	begin = st->a[ind_a(st, 0)];
 	pivot = getmedian(st, size, &amount, stack);
 	while (i < size && amount > 0)
 	{
@@ -22,19 +24,19 @@ int		partition_a(t_st *st, int size, char stack)
 			ra(st, 1);
 		i++;
     }
-	// print_tab(st);      // vot
-//	if (i - j <= size / 2 && amount == 0)
-//		while (i < size)
-//		{
-//			ra(st, 1);
-//			i++;
-//		}
-//	else
-		while ((i - j) > 0)
+//	print_tab(st);      // vot
+	if ((size - i) < (i - j) && (i - j) != j && begin != st->a[ind_a(st, 0)] && st->a_size == size)
+		while (i < size)
 		{
-			rra(st, 1);
-			i--;
+			ra(st, 1);
+			i++;
 		}
+	else if (begin != st->a[ind_a(st, 0)])
+        while ((i - j) > 0)
+	    {
+		    rra(st, 1);
+		    i--;
+    	}
 	return (size - j);
 }
 
@@ -60,7 +62,7 @@ int		partition_b(t_st *st, int size, char stack)
 			rb(st, 1);
 		i++;
 	}
-	// print_tab(st);      // vot
+//	 print_tab(st);      // vot
 	while ((i - j) > 0)
 	{
 		rrb(st, 1);
@@ -90,14 +92,14 @@ void	sorting(t_st *st, int size, char stack, int b)
 		if (stack == 'a')
 		{
 			sortthree_a(st, size);
-			// print_tab(st);      // vot
+//			 print_tab(st);      // vot
 		}
 		else
 		{
 			sortthree_b(st, size);
-			// print_tab(st);      // vot
+//			 print_tab(st);      // vot
 			toa(st, size);
-			// print_tab(st);      // vot
+//			 print_tab(st);      // vot
 		}
 	}
 	else
@@ -105,14 +107,14 @@ void	sorting(t_st *st, int size, char stack, int b)
 		if (stack == 'a')
 		{
 			pindex = partition_a(st, size, stack);
-			// print_tab(st);      // vot
+//			 print_tab(st);      // vot
 			sorting(st, pindex, 'a', b + 1);
 			sorting(st, size - pindex, 'b', b + 1);
 		}
 		else
 		{
 			pindex = partition_b(st, size, stack);
-			// print_tab(st);      // vot
+//			 print_tab(st);      // vot
 			sorting(st, size - pindex, 'a', b + 1);
 			sorting(st, pindex, 'b', b + 1);
 		}
