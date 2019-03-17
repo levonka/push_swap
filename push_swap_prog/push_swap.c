@@ -17,6 +17,8 @@
 ** diag(stacks);
 */
 
+int test = 0;
+
 int		main(int ac, char **av)
 {
 	t_st	*stacks;
@@ -28,11 +30,13 @@ int		main(int ac, char **av)
 	malloc_stack(stacks, ac);
 	argsvalidation(ac, av, stacks);
 
-//	print_tab(stacks);
+	if (test == 1)
+	    print_tab(stacks);
 //	diag(stacks);
 
 	sorting(stacks, stacks->a_size, 'a', 0);
-//	print_tab(stacks);
+	if (test == 1)
+    	print_tab(stacks);
 //	 diag(stacks);
 
 	malloc_stack(stacks, ac);

@@ -8,7 +8,6 @@ int			getmedian(t_st *st, int size, int *amount, char status)
 	if (size == 0)
 		return (0);
 	len = (size / 2 - 1);
-//	len = (size % 2 == 1) ? len - 1 : len;
 	if (status == 'a')
 		copytab(st, new_tab, size, 'a');
 	else
