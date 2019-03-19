@@ -63,12 +63,12 @@ int		partition_a(t_st *st, int size, char stack, char deep)
 
 	i = 0;
 	j = 0;
-    // printf("<first_loop = %d\n", first_loop);
+//    printf("<first_loop = %d\n", first_loop);
 	if (deep == first_loop || first_loop == 0)
         first_loop++;
 	else if (deep != first_loop)
 	    first_loop = -1;
-    // printf(">first_loop = %d\n", first_loop);
+//    printf(">first_loop = %d\n", first_loop);
     pivot = getmedian(st, size, &amount, stack);
     begin = getbegin(st, pivot, size, stack);
     while (i < size && amount > 0)
@@ -196,4 +196,6 @@ void	sorting(t_st *st, int size, char stack, int b)
 			sorting(st, pindex, 'b', b + 1);
 		}
 	}
+	if (b == 0)
+		st->instr[st->instr_end] = '\0';
 }

@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/18 16:56:44 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/19 14:38:50 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,21 @@ typedef struct		s_st
 	int				a_size;
 	int				b_size;
 	int				end;
+	char			*instr;
+	int				instr_end;
 }					t_st;
 
 /*
 ** ____________________________ Common Functions _______________________________
 **
 **	1. useful_funcs.c
-**	2. index_returners.c
-**	3. instructions1.c
-**	4. instructions2.c
-**	5. instructions3.c
-**	6. argsamount.c
-**	7. argsvalidation.c
+**	2. useful_funcs2.c
+**	3. index_returners.c
+**	4. instructions1.c
+**	5. instructions2.c
+**	6. instructions3.c
+**	7. argsamount.c
+**	8. argsvalidation.c
 */
 
 void	printerror(int status);
@@ -52,6 +55,8 @@ void	diag(t_st *st);
 void	malloc_stack(t_st *stacks, int ac);
 void    print_tab(t_st *stacks);
 void	copytab(t_st *st, int *new_tab, int size, char status);
+
+void	put_inst(t_st *st, char instruction);
 
 int		ind_a(t_st *st, int n);
 int		ind_b(t_st *st, int n);
@@ -97,7 +102,7 @@ void	sorting(t_st *st, int size, char stack, int b);
 
 // getmedian.c
 //int		getmedian(t_st *st, int size, char status);
-int			getmedian(t_st *st, int size, int *amount, char status);
+int		getmedian(t_st *st, int size, int *amount, char status);
 
 // sortthree.c
 void	sortthree_a(t_st *st, int size);
@@ -105,6 +110,10 @@ void	sortthree_b(t_st *st, int size);
 
 // tob.c
 void	tob(t_st *st, int size, int b);
+
+// malloc_instruction.c
+void	malloc_instruction(int ac, t_st *st);
+void	print_instructions(t_st *st);
 
 /*
 ** ______________________________ Error Number _________________________________

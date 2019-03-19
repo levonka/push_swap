@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:38 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/04 15:33:11 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/19 13:49:37 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,24 @@ void	sa(t_st *st, char status)
 {
 	if (st->a_size > 1)
 		ft_swapint(&st->a[st->a_top], &st->a[ind_a(st, 1)]);
-	(status == 1) ? ft_printf("sa\n") : 0;
+	(status == 1) ? put_inst(st, '1') : 0;
+	(status == 2) ? ft_printf("sa\n") : 0;
 }
 
 void	sb(t_st *st, char status)
 {
 	if (st->b_size > 1)
 		ft_swapint(&st->b[st->b_top], &st->b[ind_b(st, 1)]);
-	(status == 1) ? ft_printf("sb\n") : 0;
+	(status == 1) ? put_inst(st, '2') : 0;
+	(status == 2) ? ft_printf("sb\n") : 0;
 }
 
 void	ss(t_st *st, char status)
 {
 	sa(st, 0);
 	sb(st, 0);
-	(status == 1) ? ft_printf("ss\n") : 0;
+	(status == 1) ? put_inst(st, '3') : 0;
+	(status == 2) ? ft_printf("ss\n") : 0;
 }
 
 void	pa(t_st *st, char status)
@@ -42,7 +45,8 @@ void	pa(t_st *st, char status)
 		st->a_top = ind_a(st, -1);
 		st->b_size--;
 		st->b_top = ind_b(st, 1);
-		(status == 1) ? ft_printf("pa\n") : 0;
+		(status == 1) ? put_inst(st, '4') : 0;
+		(status == 2) ? ft_printf("pa\n") : 0;
 	}
 }
 
@@ -55,6 +59,7 @@ void	pb(t_st *st, char status)
 		st->b_top = ind_b(st, -1);
 		st->a_size--;
 		st->a_top = ind_a(st, 1);
-		(status == 1) ? ft_printf("pb\n") : 0;
+		(status == 1) ? put_inst(st, '5') : 0;
+		(status == 2) ? ft_printf("pb\n") : 0;
 	}
 }

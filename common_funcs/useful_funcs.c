@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:44 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/15 17:30:57 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/19 14:30:44 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	malloc_stack(t_st *stacks, int ac)
 		stacks->b_size = 0;
 		stacks->a_top = 0;
 		stacks->a_size = ac;
+		stacks->instr_end = 0;
 		if (stacks == NULL || stacks->a == NULL || stacks->b == NULL)
 			exit(3);
 		status = 1;
@@ -50,6 +51,7 @@ void	malloc_stack(t_st *stacks, int ac)
 	{
 		free(stacks->a);
 		free(stacks->b);
+		// free(stacks->instr);
 		free(stacks);
 		status = 0;
 	}
