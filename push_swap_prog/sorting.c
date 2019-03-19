@@ -66,7 +66,7 @@ int		partition_a(t_st *st, int size, char stack, char deep)
     // printf("<first_loop = %d\n", first_loop);
 	if (deep == first_loop || first_loop == 0)
         first_loop++;
-	else if (deep != first_loop - 1)
+	else if (deep != first_loop)
 	    first_loop = -1;
     // printf(">first_loop = %d\n", first_loop);
     pivot = getmedian(st, size, &amount, stack);
