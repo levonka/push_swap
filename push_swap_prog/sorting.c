@@ -24,24 +24,22 @@ int		getbegin(t_st *st, int pivot, int size, char stack)
     return (st->b[ind_b(st, i)]);
 }
 
-int     getlen(t_st *st, int begin, int size, char stack)
+int     stepcounter(t_st *st, int begin, int size, char stack)
 {
     int     i;
 
     i = 0;
     if (stack == 'a')
-        while (i < size)
+        while (i < st->a_size)
         {
             if (test5 == 1)
                 printf("ind_a = %d, begin = %d\n", st->a[ind_a(st, i)], begin);
             if (st->a[ind_a(st, i)] == begin)
                 break ;
             i++;
-            if (i > size / 2)
-                return (0);
         }
     else
-        while (i < size)
+        while (i < st->b_size)
         {
             if (test5 == 1)
                 printf("ind_b = %d, begin = %d\n", st->b[ind_b(st, i)], begin);
@@ -54,17 +52,24 @@ int     getlen(t_st *st, int begin, int size, char stack)
     return (1);
 }
 
-int		partition_a(t_st *st, int size, char stack)
+int		partition_a(t_st *st, int size, char stack, char deep)
 {
 	int i;
 	int j;
 	int pivot;
 	int amount;
 	int begin;
+	static int first_loop;
 
 	i = 0;
 	j = 0;
-	pivot = getmedian(st, size, &amount, stack);
+    // printf("<first_loop = %d\n", first_loop);
+	if (deep == first_loop || first_loop == 0)
+        first_loop++;
+	else if (deep != first_loop - 1)
+	    first_loop = -1;
+    // printf(">first_loop = %d\n", first_loop);
+    pivot = getmedian(st, size, &amount, stack);
     begin = getbegin(st, pivot, size, stack);
     while (i < size && amount > 0)
 	{
@@ -80,17 +85,15 @@ int		partition_a(t_st *st, int size, char stack)
     }
 	if (test5 == 1)
     	print_tab(st);      // vot
-//    if (getlen(st, begin, size, stack))
-//    if ((size - i) < (i - j) && (i - j) != j && begin != st->a[ind_a(st, 0)] && st->a_size == size / 2) // DELETE SOME CONDITIONS
-    if (begin != st->a[ind_a(st, 0)] && getlen(st, begin, size, stack))
+    if (begin != st->a[ind_a(st, 0)] && stepcounter(st, begin, size - j, stack) && first_loop == -1)
     {
         while (i < size)
-            {
-                ra(st, 1);
-                i++;
-            }
+        {
+            ra(st, 1);
+            i++;
+        }
     }
-	else if (begin != st->a[ind_a(st, 0)])
+	else if (begin != st->a[ind_a(st, 0)] && first_loop == -1)
         while ((i - j) > 0)
 	    {
 		    rra(st, 1);
@@ -111,7 +114,6 @@ int		partition_b(t_st *st, int size, char stack)
 	j = 0;
 	pivot = getmedian(st, size, &amount, stack);
     begin = getbegin(st, pivot, size, stack);
-//    begin = (begin > pivot) ? begin : pivot;
     while (i < size && amount > 0)
 	{
 		if (st->b[ind_b(st, 0)] > pivot)
@@ -126,8 +128,7 @@ int		partition_b(t_st *st, int size, char stack)
 	}
     if (test5 == 1)
         print_tab(st);      // vot
-//	if ((i - j) != j && begin != st->b[ind_b(st, 0)] && st->b_size == size) // DELETE SOME CONDITIONS
-    if (getlen(st, begin, size, stack) && begin != st->b[ind_b(st, 0)])
+    if (stepcounter(st, begin, size - j, stack) && begin != st->b[ind_b(st, 0)])
 		while (i < size)
 		{
 			rb(st, 1);
@@ -180,7 +181,7 @@ void	sorting(t_st *st, int size, char stack, int b)
 	{
 		if (stack == 'a')
 		{
-			pindex = partition_a(st, size, stack);
+			pindex = partition_a(st, size, stack, b);
 			if (test5 == 1)
 	    		print_tab(st);      // vot
 			sorting(st, pindex, 'a', b + 1);
@@ -194,7 +195,5 @@ void	sorting(t_st *st, int size, char stack, int b)
 			sorting(st, size - pindex, 'a', b + 1);
 			sorting(st, pindex, 'b', b + 1);
 		}
-		if (b == 0)
-			sortthree_a(st, 3);
 	}
 }

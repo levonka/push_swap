@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/15 17:51:40 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/18 16:56:44 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ int			getmedian(t_st *st, int size, int *amount, char status);
 // sortthree.c
 void	sortthree_a(t_st *st, int size);
 void	sortthree_b(t_st *st, int size);
+
+// tob.c
+void	tob(t_st *st, int size, int b);
 
 /*
 ** ______________________________ Error Number _________________________________
