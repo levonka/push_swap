@@ -26,7 +26,7 @@ static void	instruct_amount(int ac, t_st *st)
 		st->instr = malloc(sizeof(char) * 358000);
 }
 
-void	instruction_number(char instr)
+static void	instruction_number(char instr)
 {
 	if (instr == '1')
 		ft_printf("sa\n");

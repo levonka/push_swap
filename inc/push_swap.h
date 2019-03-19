@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/19 14:38:50 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/19 16:13:28 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 /*
 ** __________________________ Structure Definition _____________________________
 **
-**	top		- pointer to the first element in the stacks (by index).
-**	size	- amount of numbers in stacks.
-**	end		- last index in stacks.
+**	top			- pointer to the first element in the stacks (by index).
+**	size		- amount of numbers in stacks.
+**	end			- last index in stacks.
+**	instr		- list of instructions.
+**	instr_end	- pointer to the end of instr array.
 */
 
 typedef struct		s_st
@@ -114,6 +116,9 @@ void	tob(t_st *st, int size, int b);
 // malloc_instruction.c
 void	malloc_instruction(int ac, t_st *st);
 void	print_instructions(t_st *st);
+
+// edit_instructions
+void	edit_instructions(t_st *st);
 
 /*
 ** ______________________________ Error Number _________________________________
