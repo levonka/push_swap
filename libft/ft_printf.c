@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 15:05:20 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/20 14:57:07 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:11:21 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ static int		isempty(const char *format, int i)
 	return (1);
 }
 
-static int		ft_solver2(t_type *node, int len2, size_t *i, const char *format)
+static int		ft_solver2(t_type *node, int len, size_t *i, const char *format)
 {
 	free(node->type);
 	node->type = ft_strnew(1);
 	node->type[0] = format[*i];
 	if (node->type[0] != 'h' && node->type[0] != 'l')
-		len2 = ft_print_char(node, node->type[0], 0);
+		len = ft_print_char(node, node->type[0], 0);
 	(*i)++;
 	ft_freenode(node);
-	return (len2);
+	return (len);
 }
 
 static int		ft_solver(va_list args, const char *format, size_t *i)
@@ -105,4 +105,3 @@ int				ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-

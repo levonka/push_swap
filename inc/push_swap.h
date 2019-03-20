@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/19 16:13:28 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:59:34 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/ft_printf.h"
-#include <stdio.h>
 
 /*
 ** __________________________ Structure Definition _____________________________
@@ -26,18 +25,18 @@
 **	instr_end	- pointer to the end of instr array.
 */
 
-typedef struct		s_st
+typedef struct	s_st
 {
-	int				*a;
-	int				*b;
-	int				a_top;
-	int				b_top;
-	int				a_size;
-	int				b_size;
-	int				end;
-	char			*instr;
-	int				instr_end;
-}					t_st;
+	int			*a;
+	int			*b;
+	int			a_top;
+	int			b_top;
+	int			a_size;
+	int			b_size;
+	int			end;
+	char		*instr;
+	int			instr_end;
+}				t_st;
 
 /*
 ** ____________________________ Common Functions _______________________________
@@ -52,34 +51,34 @@ typedef struct		s_st
 **	8. argsvalidation.c
 */
 
-void	printerror(int status);
-void	diag(t_st *st);
-void	malloc_stack(t_st *stacks, int ac);
-void    print_tab(t_st *stacks);
-void	copytab(t_st *st, int *new_tab, int size, char status);
+void			printerror(int status);
+void			diag(t_st *st);
+void			malloc_stack(t_st *stacks, int ac);
+void			print_tab(t_st *stacks);
+void			copytab(t_st *st, int *new_tab, int size, char status);
 
-void	put_inst(t_st *st, char instruction);
+void			put_inst(t_st *st, char instruction);
 
-int		ind_a(t_st *st, int n);
-int		ind_b(t_st *st, int n);
+int				ind_a(t_st *st, int n);
+int				ind_b(t_st *st, int n);
 
-void	sa(t_st *st, char status);
-void	sb(t_st *st, char status);
-void	ss(t_st *st, char status);
-void	pa(t_st *st, char status);
-void	pb(t_st *st, char status);
+void			sa(t_st *st, char status);
+void			sb(t_st *st, char status);
+void			ss(t_st *st, char status);
+void			pa(t_st *st, char status);
+void			pb(t_st *st, char status);
 
-void	ra(t_st *st, char status);
-void	rb(t_st *st, char status);
-void	rr(t_st *st, char status);
-void	rra(t_st *st, char status);
-void	rrb(t_st *st, char status);
+void			ra(t_st *st, char status);
+void			rb(t_st *st, char status);
+void			rr(t_st *st, char status);
+void			rra(t_st *st, char status);
+void			rrb(t_st *st, char status);
 
-void	rrr(t_st *st, char status);
+void			rrr(t_st *st, char status);
 
-int		argsamount(int ac, char **av);
+int				argsamount(int ac, char **av);
 
-int		argsvalidation(int ac, char **av, t_st *st);
+int				argsvalidation(int ac, char **av, t_st *st);
 
 /*
 ** ________________________________ Checker ____________________________________
@@ -88,37 +87,36 @@ int		argsvalidation(int ac, char **av, t_st *st);
 **	2. issorted.c
 */
 
-void	instructvalidation(t_st *st);
+void			instructvalidation(t_st *st);
 
-void	issorted(t_st *st);
+void			issorted(t_st *st);
 
 /*
 ** _______________________________ Push swap ___________________________________
+**
+**	1. quicksort.c
+**	2. sorting.c
+**	3. getmedian.c
+**	4. sortthree_a.c
+**	5. sortthree_b.c
+**	6. malloc_instruction.c
+**	7. edit_instructions
 */
 
-// quicksort.c
-void	quicksort(int *arr, int start, int end);
+void			quicksort(int *arr, int start, int end);
 
-// sorting.c
-void	sorting(t_st *st, int size, char stack, int b);
+void			sorting(t_st *st, int size, char stack, int b);
 
-// getmedian.c
-//int		getmedian(t_st *st, int size, char status);
-int		getmedian(t_st *st, int size, int *amount, char status);
+int				getmedian(t_st *st, int size, int *amount, char status);
 
-// sortthree.c
-void	sortthree_a(t_st *st, int size);
-void	sortthree_b(t_st *st, int size);
+void			sortthree_a(t_st *st, int size);
 
-// tob.c
-void	tob(t_st *st, int size, int b);
+void			sortthree_b(t_st *st, int size);
 
-// malloc_instruction.c
-void	malloc_instruction(int ac, t_st *st);
-void	print_instructions(t_st *st);
+void			malloc_instruction(int ac, t_st *st);
+void			print_instructions(t_st *st);
 
-// edit_instructions
-void	edit_instructions(t_st *st);
+void			edit_instructions(t_st *st);
 
 /*
 ** ______________________________ Error Number _________________________________

@@ -18,18 +18,13 @@ int		main(int ac, char **av)
 	malloc_stack(stacks, ac);
 	argsvalidation(ac, av, stacks);
 	malloc_instruction(ac, stacks);
-
-	 if (test == 1)
-	     print_tab(stacks);
-	sorting(stacks, stacks->a_size, 'a', 0);
-    edit_instructions(stacks);
-    print_instructions(stacks);
 	if (test == 1)
-	{
-    	 print_tab(stacks);
-    	printf("%s\n", stacks->instr);
-	}
-
+		print_tab(stacks);
+	sorting(stacks, stacks->a_size, 'a', 0);
+	edit_instructions(stacks);
+	print_instructions(stacks);
+	if (test == 1)
+		print_tab(stacks);
 	malloc_stack(stacks, ac);
 	return (0);
 }

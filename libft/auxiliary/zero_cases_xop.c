@@ -6,13 +6,13 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:56:04 by yharwyn-          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:10 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:09:12 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void			zero_modificators(t_type *node)
+static void	zero_modificators(t_type *node)
 {
 	if ((node->precision == 0 || node->precision == 1) &&
 		ft_strchr(node->flags, '#') && (ft_strchr(node->type, 'o') ||
@@ -28,7 +28,7 @@ static void			zero_modificators(t_type *node)
 	}
 }
 
-static char			*zero_cases_ext(t_type *node, char *str)
+static char	*zero_cases_ext(t_type *node, char *str)
 {
 	if (node->precision == 0 && node->width > 1)
 	{
@@ -50,7 +50,7 @@ static char			*zero_cases_ext(t_type *node, char *str)
 	return (0);
 }
 
-static char			*zero_cases_p(t_type *node, char *str)
+static char	*zero_cases_p(t_type *node, char *str)
 {
 	if (node->precision == 0)
 	{
@@ -85,7 +85,7 @@ char		*zero_cases(t_type *node, char *str)
 	return (0);
 }
 
-int					printf_len_corrector(t_type *node, char *str, int len)
+int			printf_len_corrector(t_type *node, char *str, int len)
 {
 	len = ft_strlen(str);
 	ft_strchr(node->type, '@') && node->width == -1 && node->precision == 0 &&

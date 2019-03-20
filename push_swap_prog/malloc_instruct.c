@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   malloc_instruct.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/20 16:21:10 by agottlie          #+#    #+#             */
+/*   Updated: 2019/03/20 16:53:21 by agottlie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 static void	instruct_amount(int ac, t_st *st)
@@ -52,7 +64,7 @@ static void	instruction_number(char instr)
 		ft_printf("rrr\n");
 }
 
-void	print_instructions(t_st *st)
+void		print_instructions(t_st *st)
 {
 	int		i;
 
@@ -64,7 +76,7 @@ void	print_instructions(t_st *st)
 	}
 }
 
-void	malloc_instruction(int ac, t_st *st)
+void		malloc_instruction(int ac, t_st *st)
 {
 	instruct_amount(ac, st);
 }

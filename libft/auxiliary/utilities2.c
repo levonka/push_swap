@@ -6,13 +6,13 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 15:23:17 by yharwyn-          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:05 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:08:49 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char		*add0x(char *str, int start, t_type *node)
+static char	*add0x(char *str, int start, t_type *node)
 {
 	if (str[0] == '0' && str[1] == 'x')
 		return (str);
@@ -27,7 +27,7 @@ static char		*add0x(char *str, int start, t_type *node)
 		return (expand_str(str));
 }
 
-static char		*hashtag_mode_ext(char *str, t_type *node)
+static char	*hashtag_mode_ext(char *str, t_type *node)
 {
 	if (str[0] == ' ' && str[1] == ' ')
 	{
@@ -69,7 +69,7 @@ static char	*shift_npos_static(char *str, int n, int i, int j)
 	return (str);
 }
 
-char	*shift_npos(char *str, int n)
+char		*shift_npos(char *str, int n)
 {
 	int		i;
 	int		j;
@@ -93,7 +93,7 @@ char	*shift_npos(char *str, int n)
 	return (str);
 }
 
-char			*hash(char *str, t_type *node, int i)
+char		*hash(char *str, t_type *node, int i)
 {
 	while (str[i] == ' ' && str[i] != '\0')
 		i++;

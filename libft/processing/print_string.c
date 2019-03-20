@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 08:13:33 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:39 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:10:11 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ifzerowrite(t_type *node, int i)
 	return (i);
 }
 
-int		ifzero(t_type *node, int i)
+int			ifzero(t_type *node, int i)
 {
 	char	sp;
 	char	zero;
@@ -56,7 +56,7 @@ int		ifzero(t_type *node, int i)
 	return (i + 1);
 }
 
-void	ft_flagzero(t_type *node, char *str, int *i)
+void		ft_flagzero(t_type *node, char *str, int *i)
 {
 	int flag_minus;
 	int flag_zero;
@@ -73,7 +73,7 @@ void	ft_flagzero(t_type *node, char *str, int *i)
 	}
 }
 
-void	ft_flagminus(t_type *node, char *to, char *from, int *i)
+void		ft_flagminus(t_type *node, char *to, char *from, int *i)
 {
 	int		len;
 	int		flag_minus;
@@ -97,7 +97,7 @@ void	ft_flagminus(t_type *node, char *to, char *from, int *i)
 		}
 }
 
-int		ft_print_string(t_type *node, char *str, int i)
+int			ft_print_string(t_type *node, char *str, int i)
 {
 	int		len;
 	char	*str2;

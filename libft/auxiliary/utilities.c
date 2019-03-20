@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 14:04:02 by yharwyn-          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:02 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:07:51 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char		*ft_ntoa_base(uintmax_t n, int base)
 	return (res);
 }
 
-char			*octo_addzero(char *str)
+char		*octo_addzero(char *str)
 {
 	char	*new;
 	int		i;

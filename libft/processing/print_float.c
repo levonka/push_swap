@@ -6,13 +6,13 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 17:36:54 by agottlie          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:22 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:09:43 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int			ft_print_fconst2(t_type *node, char *str, int i, int minus)
+static int	ft_print_fconst2(t_type *node, char *str, int i, int minus)
 {
 	char	*str2;
 	int		len;

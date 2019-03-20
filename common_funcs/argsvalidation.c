@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:22:40 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/15 17:43:03 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:06:02 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	iscopy(t_st *st)
 
 	i = 0;
 	copytab(st, new_tab, st->a_size, 'a');
-    quicksort(new_tab, 0, st->a_size - 1);
+	quicksort(new_tab, 0, st->a_size - 1);
 	while (i + 1 < st->a_size)
 	{
 		if (new_tab[i] == new_tab[i + 1])

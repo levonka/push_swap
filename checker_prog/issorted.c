@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:41 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/20 13:28:54 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/20 16:54:05 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	issorted(t_st *st)
 			break ;
 		i++;
 	}
-	// if (i == st->a_size - 1 || st->a_size == 1)
-		// ft_printf("%.4clr\n", "OK");
-	// else
-		// ft_printf("%.2clr\n", "KO");
+	if (i == st->a_size - 1 || st->a_size == 1)
+		ft_printf("%.4clr\n", "OK");
+	else
+		ft_printf("%.2clr\n", "KO");
 }
