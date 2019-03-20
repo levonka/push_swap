@@ -172,9 +172,6 @@ void	sorting(t_st *st, int size, char stack, int b)
 			sortthree_b(st, size);
             if (test5 == 1)
 			    print_tab(st);      // vot
-			toa(st, size);
-            if (test5 == 1)
-			    print_tab(st);      // vot
 		}
 	}
 	else

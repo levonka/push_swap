@@ -112,25 +112,28 @@ void		sortthree_b_m(t_st *st, int min)
 {
 	if (min == 4)
 	{
-		rb(st, 1);
+		pa(st, 1);
 		sb(st, 1);
-		rrb(st, 1);
-		sb(st, 1);
+		pa(st, 1);
+		sa(st, 1);
+		pa(st, 1);
 	}
 	else if (min == 5)
 	{
 		sb(st, 1);
-		rb(st, 1);
+		pa(st, 1);
 		sb(st, 1);
-		rrb(st, 1);
+		pa(st, 1);
+		pa(st, 1);
 	}
 	else if (min == 6)
 	{
-		sb(st, 1);
 		rb(st, 1);
 		sb(st, 1);
+		pa(st, 1);
+		pa(st, 1);
 		rrb(st, 1);
-		sb(st, 1);
+		pa(st, 1);
 	}
 }
 
@@ -143,25 +146,54 @@ void		sortthree_b(t_st *st, int size)
 		sortthree_b_m(st, min);
 	else if (size == 3)
 	{
-		if (min == 2)
+		if (min == 1)
 		{
-			rb(st, 1);
+			pa(st, 1);
+			pa(st, 1);
+			pa(st, 1);
+		}
+		else if (min == 2)
+		{
+			pa(st, 1);
 			sb(st, 1);
-			rrb(st, 1);
+			pa(st, 1);
+			pa(st, 1);
 		}
 		else if (min == 3)
+		{
 			sb(st, 1);
+			pa(st, 1);
+			pa(st, 1);
+			pa(st, 1);
+		}
 		else if (min == 4)
-			rrb(st, 1);
+		{
+            rrb(st, 1);
+            pa(st, 1);
+            pa(st, 1);
+            pa(st, 1);
+        }
 		else if (min == 5)
-			rb(st, 1);
+        {
+            rb(st, 1);
+            pa(st, 1);
+            pa(st, 1);
+            pa(st, 1);
+        }
 		else if (min == 6)
 		{
 			sb(st, 1);
 			rrb(st, 1);
+			pa(st, 1);
+			pa(st, 1);
+			pa(st, 1);
 		}
 	}
 	else
+	{
 		if (st->b[ind_b(st, 0)] < st->b[ind_b(st, 1)])
 			sb(st, 1);
+		pa(st, 1);
+		pa(st, 1);
+	}
 }

@@ -19,14 +19,14 @@ int		main(int ac, char **av)
 	argsvalidation(ac, av, stacks);
 	malloc_instruction(ac, stacks);
 
-	// if (test == 1)
-	    // print_tab(stacks);
+	 if (test == 1)
+	     print_tab(stacks);
 	sorting(stacks, stacks->a_size, 'a', 0);
     edit_instructions(stacks);
     print_instructions(stacks);
 	if (test == 1)
 	{
-    	// print_tab(stacks);
+    	 print_tab(stacks);
     	printf("%s\n", stacks->instr);
 	}
 
