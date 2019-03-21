@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/20 16:59:34 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 08:51:49 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,18 +96,26 @@ void			issorted(t_st *st);
 **
 **	1. quicksort.c
 **	2. sorting.c
-**	3. getmedian.c
-**	4. sortthree_a.c
-**	5. sortthree_b.c
-**	6. malloc_instruction.c
-**	7. edit_instructions
+**	3. partititon_a.c
+**	4. partititon_b.c
+**	5. partititon_funcs.c
+**	6. sortthree_a.c
+**	7. sortthree_b.c
+**	8. malloc_instruction.c
+**	9. edit_instructions
 */
 
 void			quicksort(int *arr, int start, int end);
 
 void			sorting(t_st *st, int size, char stack, int b);
 
+int				partition_a(t_st *st, int size, char deep, int i);
+
+int				partition_b(t_st *st, int size, char stack);
+
 int				getmedian(t_st *st, int size, int *amount, char status);
+int				getbegin(t_st *st, int pivot, int size, char stack);
+int				stepcounter(t_st *st, int begin, int size, char stack);
 
 void			sortthree_a(t_st *st, int size);
 

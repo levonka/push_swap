@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 12:25:29 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/11 08:13:03 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 09:30:14 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_read_fd(const int fd, char **buff)
 		while (buff_read[i] != '\n' && buff_read[i])
 			i++;
 		if (buff_read[i] != '\n' && i != BUFF_SIZE && buff_read[i - 1] != '\n')
-			printerror(50);
+			printerror(6);
 		if (ft_strchr(*buff, '\n'))
 			break ;
 	}

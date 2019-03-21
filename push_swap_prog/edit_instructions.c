@@ -6,13 +6,13 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 16:51:19 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/20 16:52:30 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 08:56:05 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	hlop(t_st *st, int len, int i)
+static void	hlop(t_st *st, int len, int i)
 {
 	int		j;
 	int		k;
@@ -32,7 +32,7 @@ void	hlop(t_st *st, int len, int i)
 	st->instr[st->instr_end] = '\0';
 }
 
-void	sasb_rrara(t_st *st, int *i)
+static void	sasb_rrara(t_st *st, int *i)
 {
 	if (st->instr[*i] == '1' && st->instr[*i + 1] == '2')
 	{
@@ -47,7 +47,7 @@ void	sasb_rrara(t_st *st, int *i)
 	}
 }
 
-void	sarrasbrrb(t_st *st, int *i)
+static void	sarrasbrrb(t_st *st, int *i)
 {
 	if (*i + 3 < st->instr_end && st->instr[*i] == '1' &&
 		st->instr[*i + 1] == '9' && st->instr[*i + 2] == '2' &&
@@ -61,7 +61,7 @@ void	sarrasbrrb(t_st *st, int *i)
 	}
 }
 
-void	rrbrra(t_st *st, int *i)
+static void	rrbrra(t_st *st, int *i)
 {
 	if (*i + 4 < st->instr_end && st->instr[*i] == 'a' &&
 		st->instr[*i + 3] == '9')
@@ -80,7 +80,7 @@ void	rrbrra(t_st *st, int *i)
 	}
 }
 
-void	edit_instructions(t_st *st)
+void		edit_instructions(t_st *st)
 {
 	int		i;
 

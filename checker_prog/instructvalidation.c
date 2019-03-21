@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:39 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/19 14:06:43 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 09:17:46 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,11 @@ void		instructvalidation(t_st *st)
 			i++;
 		}
 		if (flag == 0)
-			printerror(50);
+		{
+			ft_printf(">>voooot\n");
+			ft_printf(">>%s", line);
+			printerror(5);
+		}
 		free(line);
 	}
 }
