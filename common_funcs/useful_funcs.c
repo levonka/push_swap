@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:44 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/20 16:06:25 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 11:30:01 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,20 @@ void	print_tab(t_st *st)
 	int		i;
 
 	i = 0;
-	ft_printf("%s    %s\n", "+ stack a +", "+ stack b +");
+	ft_printf("%.3clr    %.2clr\n", "+ stack a +", "+ stack b +");
 	while (i < st->a_size || i < st->b_size)
 	{
 		if (i < st->a_size)
-			ft_printf("%s%6d%4s", "|", st->a[ind_a(st, i)], "|");
+			ft_printf("%.3clr%6d%4.3clr", "|", st->a[ind_a(st, i)], "|");
 		else
-			ft_printf("%-5s-%5s", "|", "|");
+			ft_printf("%-5.3clr-%5.3clr", "|", "|");
 		if (i < st->b_size)
-			ft_printf("%5s%6d%4s\n", "|", st->b[ind_b(st, i)], "|");
+			ft_printf("%5.2clr%6d%4.2clr\n", "|", st->b[ind_b(st, i)], "|");
 		else
-			ft_printf("%5s    -    %s\n", "|", "|");
+			ft_printf("%5.2clr    -%5.2clr\n", "|", "|");
 		i++;
 	}
-	ft_printf("%s    %s\n", "|_________|", "|_________|");
+	ft_printf("%.3clr    %.2clr\n", "|_________|", "|_________|");
 }
 
 void	copytab(t_st *st, int *new_tab, int size, char status)

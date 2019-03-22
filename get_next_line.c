@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 12:25:29 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 09:30:14 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/22 10:05:07 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ static int	ft_read_fd(const int fd, char **buff)
 		ISMALLOC(joined_string);
 		ft_strdel(buff);
 		*buff = joined_string;
-		while (buff_read[i] != '\n' && buff_read[i])
+		while (buff_read[i] != '\n' && buff_read[i] != '\0')
 			i++;
-		if (buff_read[i] != '\n' && i != BUFF_SIZE && buff_read[i - 1] != '\n')
+		if (buff_read[i] != '\n' && i != BUFF_SIZE && buff_read[i - 1] != '\n'
+			&& buff_read[i] != '\0')
 			printerror(6);
 		if (ft_strchr(*buff, '\n'))
 			break ;

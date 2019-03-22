@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   partition_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/22 10:05:45 by agottlie          #+#    #+#             */
+/*   Updated: 2019/03/22 10:06:16 by agottlie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 /*
@@ -16,7 +28,7 @@ static void	tob(t_st *st, int *amount, int pivot, int *j)
 		ra(st, 1);
 }
 
-int		partition_a(t_st *st, int size, char deep, int i)
+int			partition_a(t_st *st, int size, char deep, int i)
 {
 	int			j;
 	int			pivot;

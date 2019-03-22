@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:39 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 09:17:46 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 12:03:28 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 static void	do_instruct(char ind, t_st *st)
 {
-	if (ind == 0)
+	if (ind == 5)
+		ra(st, 0);
+	else if (ind == 4)
+		pb(st, 0);
+	else if (ind == 3)
+		pa(st, 0);
+	else if (ind == 6)
+		rb(st, 0);
+	else if (ind == 0)
 		sa(st, 0);
 	else if (ind == 1)
 		sb(st, 0);
 	else if (ind == 2)
 		ss(st, 0);
-	else if (ind == 3)
-		pa(st, 0);
-	else if (ind == 4)
-		pb(st, 0);
-	else if (ind == 5)
-		ra(st, 0);
-	else if (ind == 6)
-		rb(st, 0);
 	else if (ind == 7)
 		rr(st, 0);
 	else if (ind == 8)
@@ -51,7 +51,7 @@ void		instructvalidation(t_st *st)
 	{
 		i = 0;
 		flag = 0;
-		while (ft_strcmp(base[i], "") != 0)
+		while (base[i][0] != '\0')
 		{
 			if (ft_strcmp(line, base[i]) == 0)
 			{
@@ -62,11 +62,7 @@ void		instructvalidation(t_st *st)
 			i++;
 		}
 		if (flag == 0)
-		{
-			ft_printf(">>voooot\n");
-			ft_printf(">>%s", line);
 			printerror(5);
-		}
 		free(line);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 08:51:49 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 11:10:34 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_st
 	int			end;
 	char		*instr;
 	int			instr_end;
+	char		v_flag:2;
 }				t_st;
 
 /*

@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 16:21:10 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 08:57:20 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 11:32:00 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void		print_instructions(t_st *st)
 	int		i;
 
 	i = 0;
-	while (i < st->instr_end)
-	{
-		instruction_number(st->instr[i]);
-		i++;
-	}
+	if (st->v_flag != 1)
+		while (i < st->instr_end)
+		{
+			instruction_number(st->instr[i]);
+			i++;
+		}
 }
 
 void		malloc_instruction(int ac, t_st *st)

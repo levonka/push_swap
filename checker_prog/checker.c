@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:20:18 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 09:31:08 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 15:46:48 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		main(int ac, char **av)
 	ac = argsamount(ac, av);
 	malloc_stack(stacks, ac);
 	argsvalidation(ac, av, stacks);
+	stacks->v_flag = 0;
 	instructvalidation(stacks);
 	issorted(stacks);
 	malloc_stack(stacks, ac);

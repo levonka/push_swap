@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:22:40 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/20 16:06:02 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/22 10:03:48 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static int	ft_vatoi(char **str)
 
 	res = 0;
 	sign = 1;
+	if (ft_strstr(*str, "v"))
+		printerror(41);
 	empty_valid(str, &sign);
 	while (**str >= '0' && **str <= '9' && **str != '\0')
 	{
@@ -64,6 +66,19 @@ static int	ft_vatoi(char **str)
 	return ((int)res * sign);
 }
 
+void		flag_v(t_st *st, int *ac, char **av, int *i)
+{
+	st->v_flag = 1;
+	st->end--;
+	st->a_size--;
+	st->b_top--;
+	(*ac)--;
+	(*av)++;
+	(*av)++;
+	if (!(**av))
+		(*i)++;
+}
+
 int			argsvalidation(int ac, char **av, t_st *st)
 {
 	int		i;
@@ -73,6 +88,8 @@ int			argsvalidation(int ac, char **av, t_st *st)
 
 	i = 1;
 	j = 0;
+	if (ft_strstr(av[i], "-v") != NULL)
+		flag_v(st, &ac, &(av[i]), &i);
 	while (j < ac)
 	{
 		part = av[i];

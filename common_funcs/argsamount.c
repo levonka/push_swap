@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:18:31 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/04 15:29:58 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/21 10:56:28 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ static void	ft_amountatoi(char **str)
 		(*str)++;
 	while (**str >= '0' && **str <= '9' && **str != '\0')
 		(*str)++;
-	if (ft_isdigit(**str) == 0 && ft_isspace(**str) == 0 && **str != '\0')
+	if (ft_isdigit(**str) == 0 && ft_isspace(**str) == 0 && **str != '\0' &&
+		**str != 'v')
 		printerror(41);
+	if (**str == 'v')
+		(*str)++;
 	while (ft_isspace(**str))
 		(*str)++;
 }

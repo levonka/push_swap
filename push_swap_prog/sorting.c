@@ -1,23 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/22 10:09:08 by agottlie          #+#    #+#             */
+/*   Updated: 2019/03/22 10:09:33 by agottlie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
-
-int test5 = 0;
-
-static void	sort_small_part(t_st *st, int size, char stack)
-{
-	if (stack == 'a')
-		sortthree_a(st, size);
-	else
-		sortthree_b(st, size);
-	if (test5 == 1)
-		print_tab(st);
-}
 
 void		sorting(t_st *st, int size, char stack, int b)
 {
 	int		pindex;
 
 	if (size <= 3)
-		sort_small_part(st, size, stack);
+		if (stack == 'a')
+			sortthree_a(st, size);
+		else
+			sortthree_b(st, size);
 	else
 	{
 		if (stack == 'a')
@@ -32,8 +35,6 @@ void		sorting(t_st *st, int size, char stack, int b)
 			sorting(st, size - pindex, 'a', b + 1);
 			sorting(st, pindex, 'b', b + 1);
 		}
-		if (test5 == 1)
-			print_tab(st);
 	}
 	if (b == 0)
 		st->instr[st->instr_end] = '\0';

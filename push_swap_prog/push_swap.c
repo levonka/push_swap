@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/22 10:06:33 by agottlie          #+#    #+#             */
+/*   Updated: 2019/03/22 10:06:38 by agottlie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 /*
 ** print_tab(stacks);
 ** diag(stacks);
 */
-
-int test = 0;
 
 int		main(int ac, char **av)
 {
@@ -18,13 +28,9 @@ int		main(int ac, char **av)
 	malloc_stack(stacks, ac);
 	argsvalidation(ac, av, stacks);
 	malloc_instruction(ac, stacks);
-	if (test == 1)
-		print_tab(stacks);
 	sorting(stacks, stacks->a_size, 'a', 0);
 	edit_instructions(stacks);
 	print_instructions(stacks);
-	if (test == 1)
-		print_tab(stacks);
 	malloc_stack(stacks, ac);
 	return (0);
 }
