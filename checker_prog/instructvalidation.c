@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:39 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 12:03:28 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/22 17:59:44 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ void		instructvalidation(t_st *st)
 	char		flag;
 	int			i;
 
+	if (st->v_flag == 1)
+	{
+		visualisation(st);
+		exit(7);
+	}
+	else
+		st->v_flag = 0;
 	st->instr = malloc(sizeof(char) * 1);
 	while (get_next_line(0, &line))
 	{

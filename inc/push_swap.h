@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/21 11:10:34 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/23 08:13:16 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,64 @@ typedef struct	s_st
 	int			instr_end;
 	char		v_flag:2;
 }				t_st;
+
+// edit
+# ifndef WIN_W
+# define WIN_W 800
+# endif
+
+# ifndef WIN_H
+#  define WIN_H 600
+# endif
+
+typedef struct      s_img
+{
+    void            *img;
+    unsigned int    *data;
+    int             size_line;
+    int             end;
+    int             bits_per_pixel;
+    int             width;
+    int             height;
+}                   t_img;
+
+typedef struct  s_mlx
+{
+    void        *mlx_init;
+    int         width; // window width
+    int         height; // window height
+    char        *title;
+    t_img       img;
+    void        *win;
+}               t_mlx;
+
+typedef struct  s_fdf
+{
+    t_mlx       mlx;
+    t_st        *st;
+    int         max_del;
+    int         stacks_size;
+}               t_fdf;
+
+typedef struct		  	s_pixel
+{
+    double				x;
+    double				y;
+    unsigned int		color;
+}              			t_pixel;
+
+// mlx
+#include "mlx.h"
+#include <fcntl.h>
+#include <stdlib.h>
+t_img   init_img(void *mlx, int width, int height);
+int     draw_img(void *mlx, void *win, t_img img);
+int     put_pix_img(void *mlx, void *mx, t_pixel p, unsigned int color);
+void    draw_line(t_pixel a, t_pixel b, t_fdf *fdf);
+t_mlx   init_mlx(void *mlx, int width, int height);
+void    init_win(t_mlx *mlx, char *title, int width, int height);
+t_pixel init_pixel(double x, double y, unsigned int color);
+void    visualisation(t_st *st);
 
 /*
 ** ____________________________ Common Functions _______________________________
@@ -130,8 +188,8 @@ void			edit_instructions(t_st *st);
 /*
 ** ______________________________ Error Number _________________________________
 **
-**	0 - no error.
-**	3 - memmory does not allocated.
+**	0  - no error.
+**	3  - memmory does not allocated.
 **
 **	validation
 **	40 - there are no arguments.
@@ -139,7 +197,10 @@ void			edit_instructions(t_st *st);
 **	42 - some arguments are bigger or lower than an integer.
 **	43 - there are duplicates.
 **	44 - there are empty argument.
-**	5 - an instruction don’t exist and/or is incorrectly formatted.
+**	5  - an instruction don’t exist and/or is incorrectly formatted.
+**
+**  6  - error in get_next_line.
+**  7  - exit from -v flag.
 */
 
 #endif

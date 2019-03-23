@@ -13,7 +13,9 @@ PUSH_SRC = push_swap_prog/*.c
 GNL = get_next_line.c
 COMMON_FUNCS = common_funcs/*.c
 
-FLAGS = -Wall -Wextra -Werror
+MLX = mlx/*.c
+
+FLAGS = 
 
 OBJ = *.o
 
@@ -25,16 +27,16 @@ $(NAME):
 
 common: fclean
 	@make -C libft
-	@gcc $(FLAGS) -c $(GNL) $(COMMON_FUNCS) -I$(INC)
+	@gcc $(FLAGS) -c $(GNL) $(MLX) $(COMMON_FUNCS) -I$(INC)
 
 push_swap: common checker
 	@gcc $(FLAGS) -c $(PUSH_SRC) -I$(INC)
-	@gcc -L. $(LIB) -I$(INC) -o $(PUSHNAME) $(OBJ)
+	@gcc -lmlx -framework OpenGL -framework AppKit -L. $(LIB) -I$(INC) -o $(PUSHNAME) $(OBJ)
 	@make clean
 
 checker:
 	@gcc $(FLAGS) -c $(CHECKER_SRC) -I$(INC)
-	@gcc -L. $(LIB) -I$(INC) -o $(CHECKNAME) $(OBJ)
+	@gcc -lmlx -framework OpenGL -framework AppKit -L. $(LIB) -I$(INC) -o $(CHECKNAME) $(OBJ)
 	@/bin/rm -f checker.o
 
 norme:
