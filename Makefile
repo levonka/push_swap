@@ -15,7 +15,7 @@ COMMON_FUNCS = common_funcs/*.c
 
 MLX = mlx/*.c
 
-FLAGS = 
+FLAGS = -Wall -Wextra -Werror
 
 OBJ = *.o
 

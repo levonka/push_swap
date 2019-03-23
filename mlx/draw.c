@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 18:56:17 by sdurgan           #+#    #+#             */
-/*   Updated: 2019/03/22 13:49:39 by agottlie         ###   ########.fr       */
+/*   Created: 2019/03/23 08:48:34 by agottlie          #+#    #+#             */
+/*   Updated: 2019/03/23 10:18:38 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	draw_line(t_pixel a, t_pixel b, t_fdf *fdf)
 	cur = a;
 	while (cur.x != b.x || cur.y != b.y)
 	{
-		put_pix_img(fdf->mlx.mlx_init, fdf, cur, a.color);
-		//mlx_pixel_put(fdf->mlx.mlx_init, fdf->mlx.win, cur.x, cur.y, 0x00FFFFFF);
+		put_pix_img(fdf, cur, a.color);
 		if ((error[1] = error[0] << 2) > -delta.y)
 		{
 			error[0] -= delta.y;

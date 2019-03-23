@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:14:39 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/22 17:59:44 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/23 11:30:42 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,8 @@ static void	do_instruct(char ind, t_st *st)
 		rrr(st, 0);
 }
 
-void		instructvalidation(t_st *st)
+static void	isflag_v(t_st *st)
 {
-	const char	base[][4] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
-	"rra", "rrb", "rrr", ""};
-	char		*line;
-	char		flag;
-	int			i;
-
 	if (st->v_flag == 1)
 	{
 		visualisation(st);
@@ -54,6 +48,17 @@ void		instructvalidation(t_st *st)
 	else
 		st->v_flag = 0;
 	st->instr = malloc(sizeof(char) * 1);
+}
+
+void		instructvalidation(t_st *st)
+{
+	const char	base[][4] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
+	"rra", "rrb", "rrr", ""};
+	char		*line;
+	char		flag;
+	int			i;
+
+	isflag_v(st);
 	while (get_next_line(0, &line))
 	{
 		i = 0;

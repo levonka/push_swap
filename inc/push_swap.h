@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/23 08:13:16 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/23 11:17:01 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/ft_printf.h"
+# include "mlx.h"
 
 /*
 ** __________________________ Structure Definition _____________________________
@@ -23,79 +24,100 @@
 **	end			- last index in stacks.
 **	instr		- list of instructions.
 **	instr_end	- pointer to the end of instr array.
+**	v_flag		- indicates whether the flag 'v' is on.
 */
 
-typedef struct	s_st
+typedef struct		s_st
 {
-	int			*a;
-	int			*b;
-	int			a_top;
-	int			b_top;
-	int			a_size;
-	int			b_size;
-	int			end;
-	char		*instr;
-	int			instr_end;
-	char		v_flag:2;
-}				t_st;
+	int				*a;
+	int				*b;
+	int				a_top;
+	int				b_top;
+	int				a_size;
+	int				b_size;
+	int				end;
+	char			*instr;
+	int				instr_end;
+	char			v_flag:2;
+}					t_st;
 
-// edit
+/*
+** ____________________ Structure Definition For Graphics ______________________
+*/
+
 # ifndef WIN_W
-# define WIN_W 800
+#  define WIN_W 800
 # endif
 
 # ifndef WIN_H
 #  define WIN_H 600
 # endif
 
-typedef struct      s_img
+typedef struct		s_img
 {
-    void            *img;
-    unsigned int    *data;
-    int             size_line;
-    int             end;
-    int             bits_per_pixel;
-    int             width;
-    int             height;
-}                   t_img;
+	void			*img;
+	unsigned int	*data;
+	int				size_line;
+	int				end;
+	int				bits_per_pixel;
+	int				width;
+	int				height;
+}					t_img;
 
-typedef struct  s_mlx
+typedef struct		s_mlx
 {
-    void        *mlx_init;
-    int         width; // window width
-    int         height; // window height
-    char        *title;
-    t_img       img;
-    void        *win;
-}               t_mlx;
+	void			*mlx_init;
+	int				width;
+	int				height;
+	char			*title;
+	t_img			img;
+	void			*win;
+}					t_mlx;
 
-typedef struct  s_fdf
+typedef struct		s_fdf
 {
-    t_mlx       mlx;
-    t_st        *st;
-    int         max_del;
-    int         stacks_size;
-}               t_fdf;
+	t_mlx			mlx;
+	t_st			*st;
+	int				max_del;
+	int				stacks_size;
+	int				el_height;
+}					t_fdf;
 
-typedef struct		  	s_pixel
+typedef struct		s_pixel
 {
-    double				x;
-    double				y;
-    unsigned int		color;
-}              			t_pixel;
+	double			x;
+	double			y;
+	unsigned int	color;
+}					t_pixel;
 
-// mlx
-#include "mlx.h"
-#include <fcntl.h>
-#include <stdlib.h>
-t_img   init_img(void *mlx, int width, int height);
-int     draw_img(void *mlx, void *win, t_img img);
-int     put_pix_img(void *mlx, void *mx, t_pixel p, unsigned int color);
-void    draw_line(t_pixel a, t_pixel b, t_fdf *fdf);
-t_mlx   init_mlx(void *mlx, int width, int height);
-void    init_win(t_mlx *mlx, char *title, int width, int height);
-t_pixel init_pixel(double x, double y, unsigned int color);
-void    visualisation(t_st *st);
+/*
+** ___________________________ Graphics Functions ______________________________
+**
+**	1. checker_prog/visualisation.c
+**	2. checker_prog/useful_funcs_v.c
+**	3. mlx/draw.c
+**	4. mlx/mlx_graphics.c
+**	5. mlx/mlx_img.c
+**	6. mlx/pixel.c
+*/
+
+void				visualisation(t_st *st);
+
+void				malloc_instr_g(int ac, t_st *st);
+char				instr_return(int i);
+void				do_instruct_g(t_fdf fdf, char i);
+void				max_del(t_fdf *fdf);
+
+void				draw_line(t_pixel a, t_pixel b, t_fdf *fdf);
+
+t_mlx				init_mlx(void *mlx, int width, int height);
+void				init_win(t_mlx *mlx, char *title);
+
+t_img				init_img(void *mlx, int width, int height);
+int					draw_img(void *mlx, void *win, t_img img);
+int					put_pix_img(void *mx, t_pixel p, unsigned int color);
+
+t_pixel				init_pixel(double x, double y, unsigned int color);
 
 /*
 ** ____________________________ Common Functions _______________________________
@@ -110,34 +132,34 @@ void    visualisation(t_st *st);
 **	8. argsvalidation.c
 */
 
-void			printerror(int status);
-void			diag(t_st *st);
-void			malloc_stack(t_st *stacks, int ac);
-void			print_tab(t_st *stacks);
-void			copytab(t_st *st, int *new_tab, int size, char status);
+void				printerror(int status);
+void				diag(t_st *st);
+void				malloc_stack(t_st *stacks, int ac);
+void				print_tab(t_st *stacks);
+void				copytab(t_st *st, int *new_tab, int size, char status);
 
-void			put_inst(t_st *st, char instruction);
+void				put_inst(t_st *st, char instruction);
 
-int				ind_a(t_st *st, int n);
-int				ind_b(t_st *st, int n);
+int					ind_a(t_st *st, int n);
+int					ind_b(t_st *st, int n);
 
-void			sa(t_st *st, char status);
-void			sb(t_st *st, char status);
-void			ss(t_st *st, char status);
-void			pa(t_st *st, char status);
-void			pb(t_st *st, char status);
+void				sa(t_st *st, char status);
+void				sb(t_st *st, char status);
+void				ss(t_st *st, char status);
+void				pa(t_st *st, char status);
+void				pb(t_st *st, char status);
 
-void			ra(t_st *st, char status);
-void			rb(t_st *st, char status);
-void			rr(t_st *st, char status);
-void			rra(t_st *st, char status);
-void			rrb(t_st *st, char status);
+void				ra(t_st *st, char status);
+void				rb(t_st *st, char status);
+void				rr(t_st *st, char status);
+void				rra(t_st *st, char status);
+void				rrb(t_st *st, char status);
 
-void			rrr(t_st *st, char status);
+void				rrr(t_st *st, char status);
 
-int				argsamount(int ac, char **av);
+int					argsamount(int ac, char **av);
 
-int				argsvalidation(int ac, char **av, t_st *st);
+int					argsvalidation(int ac, char **av, t_st *st);
 
 /*
 ** ________________________________ Checker ____________________________________
@@ -146,9 +168,9 @@ int				argsvalidation(int ac, char **av, t_st *st);
 **	2. issorted.c
 */
 
-void			instructvalidation(t_st *st);
+void				instructvalidation(t_st *st);
 
-void			issorted(t_st *st);
+void				issorted(t_st *st);
 
 /*
 ** _______________________________ Push swap ___________________________________
@@ -164,26 +186,26 @@ void			issorted(t_st *st);
 **	9. edit_instructions
 */
 
-void			quicksort(int *arr, int start, int end);
+void				quicksort(int *arr, int start, int end);
 
-void			sorting(t_st *st, int size, char stack, int b);
+void				sorting(t_st *st, int size, char stack, int b);
 
-int				partition_a(t_st *st, int size, char deep, int i);
+int					partition_a(t_st *st, int size, char deep, int i);
 
-int				partition_b(t_st *st, int size, char stack);
+int					partition_b(t_st *st, int size, char stack);
 
-int				getmedian(t_st *st, int size, int *amount, char status);
-int				getbegin(t_st *st, int pivot, int size, char stack);
-int				stepcounter(t_st *st, int begin, int size, char stack);
+int					getmedian(t_st *st, int size, int *amount, char status);
+int					getbegin(t_st *st, int pivot, int size, char stack);
+int					stepcounter(t_st *st, int begin, int size, char stack);
 
-void			sortthree_a(t_st *st, int size);
+void				sortthree_a(t_st *st, int size);
 
-void			sortthree_b(t_st *st, int size);
+void				sortthree_b(t_st *st, int size);
 
-void			malloc_instruction(int ac, t_st *st);
-void			print_instructions(t_st *st);
+void				malloc_instruction(int ac, t_st *st);
+void				print_instructions(t_st *st);
 
-void			edit_instructions(t_st *st);
+void				edit_instructions(t_st *st);
 
 /*
 ** ______________________________ Error Number _________________________________
