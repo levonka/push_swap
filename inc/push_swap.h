@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 12:52:55 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/23 11:17:01 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/24 11:48:48 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void				print_tab(t_st *stacks);
 void				copytab(t_st *st, int *new_tab, int size, char status);
 
 void				put_inst(t_st *st, char instruction);
+int					issorted(t_st *st, char status);
 
 int					ind_a(t_st *st, int n);
 int					ind_b(t_st *st, int n);
@@ -165,12 +166,9 @@ int					argsvalidation(int ac, char **av, t_st *st);
 ** ________________________________ Checker ____________________________________
 **
 **	1. instructvalidation.c
-**	2. issorted.c
 */
 
 void				instructvalidation(t_st *st);
-
-void				issorted(t_st *st);
 
 /*
 ** _______________________________ Push swap ___________________________________

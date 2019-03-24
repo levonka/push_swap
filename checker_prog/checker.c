@@ -6,7 +6,7 @@
 /*   By: agottlie <agottlie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:20:18 by agottlie          #+#    #+#             */
-/*   Updated: 2019/03/23 11:21:00 by agottlie         ###   ########.fr       */
+/*   Updated: 2019/03/24 11:44:03 by agottlie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(int ac, char **av)
 	if (stacks->v_flag == 1)
 		print_tab(stacks);
 	instructvalidation(stacks);
-	issorted(stacks);
+	issorted(stacks, 1);
 	malloc_stack(stacks, ac);
 	return (0);
 }

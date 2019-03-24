@@ -3,11 +3,9 @@ NAME = push_swap
 LIB = libft/libftprintf.a
 
 CHECKNAME = checker
-# MAIN_CHECKER = checker_prog/checker.c
 CHECKER_SRC = checker_prog/*.c
 
 PUSHNAME = push_swap
-# MAIN_PUSH = push_swap_prog/push_swap.c
 PUSH_SRC = push_swap_prog/*.c
 
 GNL = get_next_line.c
